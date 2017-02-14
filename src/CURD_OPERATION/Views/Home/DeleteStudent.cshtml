@@ -1,0 +1,10 @@
+﻿@model CURD_OPERATION.Models.Student
+<div>
+    <center>
+        <form method="post">
+            <label>Are you sure you wann delete this Student</label>
+            <p >@Model.Name</p>
+            <button type="submit" asp-route-id="@Model.ID" class="btn btn-danger">Yes</button>
+        </form>
+    </center>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CURD_OPERATION.Models.Student>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<a asp-controller="Home" asp-action="AddStudent" class="btn btn-primary">Add Student</a>
+<table class="table table-bordered table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Registration Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.RegistrationNumber)</td>
+                <td>
+                    <a asp-action="EditStudent" asp-route-id="@item.ID" 
+                       class="btn btn-info">
+                        <i class="glyphicon glyphicon-pencil"></i>  Edit
+                    </a>
+                    <a    asp-action="DeleteStudent" asp-route-id="@item.ID" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>  Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
